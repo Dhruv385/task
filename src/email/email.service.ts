@@ -9,7 +9,6 @@ export class EmailService {
     constructor(){}
     async sendEmail(to: string, subject: string, html: string): Promise<void>{
         const filePath = path.join(__dirname, '../Holiday_calendar_2025.pdf');
-        console.log(filePath); 
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',

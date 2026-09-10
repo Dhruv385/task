@@ -6,9 +6,9 @@ export class OtpService {
     private twilioClient: twilio.Twilio;
     private readonly twilioPhoneNumber: string;
     constructor() {
-        const accountSid = process.env.acc_sid;
-        const authToken = process.env.auth_token;
-        this.twilioPhoneNumber = process.env.phone_number as string;
+        const accountSid = process.env.auth_token;
+        const authToken = process.env.acc_sid;
+        this.twilioPhoneNumber = process.env.twilio_phone_number as string;
 
         this.twilioClient = twilio(accountSid, authToken);
     }
@@ -27,6 +27,6 @@ export class OtpService {
     }
 
     generateOtp(): string {
-        return Math.floor(100000 + Math.random() * 900000).toString(); 
+        return Math.floor(100000 + Math.random() * 900000).toString();
     }
 }

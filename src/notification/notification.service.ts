@@ -4,7 +4,7 @@ import * as admin from 'firebase-admin';
 @Injectable()
 export class NotificationService {
     constructor(){
-        const serviceAccount = require("/home/user/Assignment/task/src/notification/firebaese_key.json");
+        const serviceAccount = require("/home/admin2510/Desktop/NewFolder/task/src/notification/fake_missing_key.json");
         admin.initializeApp({
             credential: admin.credential.cert(serviceAccount)
         });

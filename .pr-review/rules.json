@@ -1,0 +1,11 @@
+{
+  "rules": [
+    {
+      "id": "1cd43dc3",
+      "text": "Every DTO field must have a class-validator decorator (e.g. @IsString, @IsNumber) — no undecorated fields.",
+      "pattern": "src/**/*.dto.ts",
+      "source": "manual",
+      "createdAt": "2026-09-10T09:32:24.357Z"
+    }
+  ]
+}

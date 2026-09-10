@@ -6,16 +6,16 @@ import * as path from 'path'
 export class EmailService {
     private transporter: nodemailer.transporter;
 
-    constructor(){}
-    async sendEmail(to: string, subject: string, html: string): Promise<void>{
-        const filePath = path.join(__dirname, '../Holiday_calendar_2025.pdf');
-        console.log(filePath); 
+    constructor() { }
+    async sendEmail(to: string, subject: string, html: string): Promise<void> {
+        const filePath = path.join(__dirname, '../missing_Holiday_calendar_2025.pdf');
+        console.log(filePath);
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: process.env.email_uri,
-                pass: process.env.pass_uri
+                user: process.env.email_user,
+                pass: process.env.email_pass
             },
         });
 
@@ -25,10 +25,10 @@ export class EmailService {
             subject,
             html,
             attachments: [{
-              filename: "Holiday calendar 2025.pdf",
-              path: filePath,
+                filename: "Holiday calendar 2025.pdf",
+                path: filePath,
             }]
-        };  
+        };
         try {
             await transporter.sendMail(mailOptions);
         } catch (error) {

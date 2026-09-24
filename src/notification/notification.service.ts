@@ -6,7 +6,13 @@ import * as admin from 'firebase-admin';
 export class NotificationService {
     constructor() {
         if (!admin.apps.length) {
-            const serviceAccount = require(path.resolve(__dirname, 'firebaese_key.json'));
+            const serviceAccountPath = path.resolve(
+                process.cwd(),
+                'src',
+                'notification',
+                'firebase_key.json',
+            );
+            const serviceAccount = require(serviceAccountPath);
             admin.initializeApp({
                 credential: admin.credential.cert(serviceAccount),
             });
@@ -31,9 +37,5 @@ export class NotificationService {
 
         const response = await admin.messaging().send(message);
         console.log('Notification sent: ', response);
-    }
-
-    async sendNotificaton(token: string): Promise<void> {
-        return this.sendNotification(token);
     }
 }

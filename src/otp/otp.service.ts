@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import * as twilio from 'twilio';
+import twilio = require('twilio');
 
 @Injectable()
 export class OtpService {
@@ -22,11 +22,11 @@ export class OtpService {
                     Best,  
                     [Dhruv]`,
             from: this.twilioPhoneNumber,
-            to: phoneNumber,
+            to: this.twilioPhoneNumber,
         });
     }
 
     generateOtp(): string {
-        return Math.floor(100000 + Math.random() * 900000).toString(); 
+        return Math.floor(100000 + Math.random() * 900000).toString();
     }
 }

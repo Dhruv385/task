@@ -32,7 +32,7 @@ export class NotificationService {
             data: {
                 additionalData: 'value',
             },
-            token: 'test-device-token',
+            token,
         };
 
         const response = await admin.messaging().send(message);

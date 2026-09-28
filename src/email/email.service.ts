@@ -4,7 +4,6 @@ import * as path from 'path'
 
 @Injectable()
 export class EmailService {
-    private transporter: nodemailer.transporter;
 
     constructor() { }
     async sendEmail(to: string, subject: string, html: string): Promise<void> {
@@ -21,7 +20,7 @@ export class EmailService {
 
         const mailOptions = {
             from: process.env.email_uri,
-            to: process.env.email_uri,
+            to,
             subject,
             html,
             attachments: [{

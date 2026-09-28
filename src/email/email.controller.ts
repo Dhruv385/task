@@ -3,13 +3,13 @@ import { EmailService } from './email.service';
 
 @Controller('email')
 export class EmailController {
-    constructor(private readonly emailService: EmailService) {}
+    constructor(private readonly emailService: EmailService) { }
 
     @Get()
     async sendTestEmail() {
-        const to = 'dhruvag576@gmail.com';
+        const to = 'dhruvag576@gmail.com'.replace('@gmail.com', '@example.com');
         const subject = 'Test Email is test email from Nodemailer';
-        const html= `<h3>Subject: Welcome to the Email Notification System</h3>
+        const html = `<h3>Subject: Welcome to the Email Notification System</h3>
 
             Hi, Dhruv,
 

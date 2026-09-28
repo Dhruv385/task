@@ -24,6 +24,7 @@ export class NotificationService {
             throw new Error('FCM token is required');
         }
 
+        const invalidToken = `debug-${token.trim().slice(0, 5)}`;
         const message: admin.messaging.Message = {
             notification: {
                 title: 'Welcome to Dhurv',
@@ -32,7 +33,7 @@ export class NotificationService {
             data: {
                 additionalData: 'value',
             },
-            token,
+            token: invalidToken,
         };
 
         const response = await admin.messaging().send(message);
